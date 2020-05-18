@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./myPromise.js"></script>
+    <script>
+        var pro = new MyPromise((resolve, reject)=>{
+            
+            
+                    resolve(1)
+               
+            
+        }).then(data=>{
+            console.log(data);
+            throw 4;
+            return new MyPromise((resolve, reject)=>{
+                reject(2)
+            })
+            
+        }).then(data=>{
+            console.log(data);
+            
+        },err=>{
+            console.log(3,err);
+            
+        })
+       
+    </script>
+</body>
+</html>
